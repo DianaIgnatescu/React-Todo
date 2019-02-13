@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = () => <div>{task}</div>;
+const Todo = ({ task, id, completed }) => <div>{task}</div>;
 
 Todo.propTypes = {
   task: PropTypes.string.isRequired,
