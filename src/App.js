@@ -29,11 +29,41 @@ class App extends React.Component {
         },
       ],
       text: '',
-      newTask: '',
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
+    this.markAsComplete = this.markAsComplete.bind(this);
+    this.markAsIncomplete = this.markAsIncomplete.bind(this);
+  }
+
+  markAsComplete(id) {
+    let index;
+    this.state.items.forEach((item, i) => {
+      if (item.id === id) {
+        index = i;
+      }
+    });
+    const newItems = [...this.state.items];
+    newItems[index].completed = true;
+    this.setState({
+      items: [...newItems],
+    });
+  }
+
+  markAsIncomplete(id) {
+    console.log('happened');
+    let index;
+    this.state.items.forEach((item, i) => {
+      if (item.id === id) {
+        index = i;
+      }
+    });
+    const newItems = [...this.state.items];
+    newItems[index].completed = false;
+    this.setState({
+      items: [...newItems],
+    });
   }
 
   addNewItem(newItem) {
@@ -59,7 +89,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <h2>Things To Do</h2>
-        <TodoList items={this.state.items} />
+        <TodoList items={this.state.items} markAsComplete={this.markAsComplete} markAsIncomplete={this.markAsIncomplete} />
         <ToDoForm
           changeHandler={this.changeHandler}
           text={this.state.text}
