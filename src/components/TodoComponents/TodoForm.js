@@ -9,12 +9,18 @@ const ToDoForm = ({ handleChange, addNewItem, text }) => (
       placeholder="Add a new task"
       value={text}
     />
-    <button type="button" onClick={() => addNewItem({ id: String(Date.now()), completed: false, task: text })}>Add ToDo</button>
-    <button type="button" onClick={() => console.log('cleared')}>Clear Completed</button>
+
+    <button type="button" onClick={() => addNewItem({ id: String(Date.now()), completed: false, task: text })}>
+      Add ToDo
+    </button>
+
+    <button type="button" onClick={() => console.log('cleared')}>
+      Clear Completed
+    </button>
   </form>
 );
 
-ToDoForm.protoTypes = {
+ToDoForm.propTypes = {
   addNewItem: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   text: PropTypes.string,
