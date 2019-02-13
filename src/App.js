@@ -31,6 +31,9 @@ class App extends React.Component {
       text: '',
       newTask: '',
     };
+    this.changeHandler = this.changeHandler.bind(this);
+    this.addNewItem = this.addNewItem.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
   }
 
   addNewItem(newItem) {
@@ -41,7 +44,14 @@ class App extends React.Component {
     });
   }
 
-  handleChange(event) {
+  clearCompleted() {
+    const incompleteItems = this.state.items.filter(item => !item.completed);
+    this.setState({
+      items: [...incompleteItems],
+    });
+  }
+
+  changeHandler(event) {
     this.setState({ text: event.target.value });
   }
 
@@ -51,9 +61,10 @@ class App extends React.Component {
         <h2>Things To Do</h2>
         <TodoList items={this.state.items} />
         <ToDoForm
-          handleChange={this.handleChange.bind(this)}
+          changeHandler={this.changeHandler}
           text={this.state.text}
-          addNewItem={this.addNewItem.bind(this)}
+          addNewItem={this.addNewItem}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

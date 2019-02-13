@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ToDoForm = ({ handleChange, addNewItem, text }) => (
+const ToDoForm = ({
+  changeHandler, addNewItem, text, clearCompleted,
+}) => (
   <form>
     <input
       id="new-task"
-      onChange={handleChange}
+      onChange={changeHandler}
       placeholder="Add a new task"
       value={text}
     />
@@ -14,7 +16,7 @@ const ToDoForm = ({ handleChange, addNewItem, text }) => (
       Add ToDo
     </button>
 
-    <button type="button" onClick={() => console.log('cleared')}>
+    <button type="button" onClick={clearCompleted}>
       Clear Completed
     </button>
   </form>
@@ -22,8 +24,9 @@ const ToDoForm = ({ handleChange, addNewItem, text }) => (
 
 ToDoForm.propTypes = {
   addNewItem: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  changeHandler: PropTypes.func.isRequired,
   text: PropTypes.string,
+  clearCompleted: PropTypes.func.isRequired,
 };
 
 ToDoForm.defaultProps = {
