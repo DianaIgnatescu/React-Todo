@@ -8,7 +8,7 @@ import Todo from './Todo';
 const TodoList = ({ items }) => (
   <div>
     {items.map(item => (
-      <Todo key={item.id} task={item.task} id={item.id} completed={item.completed} />
+      <Todo key={`todo-${item.id}`} task={item.task} id={item.id} completed={item.completed} />
     ))}
   </div>
 );
