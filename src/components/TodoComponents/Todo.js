@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Todo = ({
-  task, id, completed, markAsComplete, markAsIncomplete,
+  task, completed, markAsComplete, markAsIncomplete,
 }) => {
   if (completed) {
     return <div className="task-completed" onClick={markAsIncomplete}>{task}</div>;
@@ -12,7 +12,6 @@ const Todo = ({
 
 Todo.propTypes = {
   task: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
   markAsComplete: PropTypes.func.isRequired,
   markAsIncomplete: PropTypes.func.isRequired,

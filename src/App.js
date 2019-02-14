@@ -13,18 +13,23 @@ class App extends React.Component {
     this.state = {
       items: [
         {
-          task: 'Organize Garage',
+          task: 'Make a To Do List',
           id: '1',
+          completed: true,
+        },
+        {
+          task: 'Pet Llama',
+          id: '2',
           completed: false,
         },
         {
           task: 'Bake Cookies',
-          id: '2',
+          id: '3',
           completed: true,
         },
         {
           task: 'Try To Take Over The World',
-          id: '3',
+          id: '4',
           completed: false,
         },
       ],
@@ -89,7 +94,11 @@ class App extends React.Component {
     return (
       <div className="app">
         <h2>Things To Do</h2>
-        <TodoList items={this.state.items} markAsComplete={this.markAsComplete} markAsIncomplete={this.markAsIncomplete} />
+        <TodoList
+          items={this.state.items}
+          markAsComplete={this.markAsComplete}
+          markAsIncomplete={this.markAsIncomplete}
+        />
         <ToDoForm
           changeHandler={this.changeHandler}
           text={this.state.text}
