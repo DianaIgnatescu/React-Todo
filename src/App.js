@@ -32,6 +32,16 @@ class App extends React.Component {
           id: '4',
           completed: false,
         },
+        {
+          task: 'Water Plants',
+          id: '5',
+          completed: false,
+        },
+        {
+          task: 'Complain about the weather',
+          id: '6',
+          completed: true,
+        },
       ],
       text: '',
     };
