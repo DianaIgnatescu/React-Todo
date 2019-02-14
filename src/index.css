@@ -1,3 +1,110 @@
 .task-completed {
-  text-decoration: line-through;
+  text-decoration: red line-through;
+}
+.item:hover {
+  cursor: pointer;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  height: 800px;
+  background-image: linear-gradient(45deg,#cc95c0, #4448d8);
+  border-radius: 25px;
+}
+
+.app h2 {
+  text-align: center;
+  color: white;
+  font-size: 2.6rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.list-container {
+  color: white;
+  line-height: 2;
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  height: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-button {
+  border-radius: 15px;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  background: RGBA(255,255,255,0.36);
+  border: none;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+}
+
+.add-button:hover {
+  background: #cc95c0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+input {
+  /* padding: 20px 10px; */
+  /* opacity: 0.8; */
+  background: RGBA(255,255,255,0.36);
+  margin: 10px 0;
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  width: 490px;
+  color: white;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 20px;
+}
+
+::placeholder {
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 510px;
+}
+.button-container button {
+  padding: 20px 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background: RGBA(255,255,255,0.36);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  border: none;
+  color: white;
+  width: 250px;
+}
+
+.button-container button:hover {
+  background: #cc95c0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.button-container button:last-child {
+  margin-left: 20px;
 }

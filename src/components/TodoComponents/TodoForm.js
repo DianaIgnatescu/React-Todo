@@ -1,28 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const valueToItem = value => ({
+  id: String(Date.now()),
+  completed: false,
+  task: value,
+});
+
+const handleEnterKeyPressed = addNewItem => (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    addNewItem(valueToItem(event.target.value));
+  }
+};
+
 const ToDoForm = ({
   changeHandler, addNewItem, text, clearCompleted, clearItems,
 }) => (
-  <form>
-    <input
-      id="new-task"
-      onChange={changeHandler}
-      placeholder="Add a new task"
-      value={text}
-    />
+  <form className="form-container">
+    <div className="input-container">
+      <input
+        id="new-task"
+        onChange={changeHandler}
+        onKeyDown={handleEnterKeyPressed(addNewItem)}
+        placeholder="Add a new task"
+        value={text}
+      />
 
-    <button type="button" onClick={() => addNewItem({ id: String(Date.now()), completed: false, task: text })}>
-      Add ToDo
-    </button>
+      <button className="add-button" type="button" onClick={() => addNewItem(valueToItem(text))}>
+        +
+      </button>
+    </div>
+    <div className="button-container">
+      <button type="button" onClick={clearCompleted}>
+        Clear Completed
+      </button>
 
-    <button type="button" onClick={clearCompleted}>
-      Clear Completed
-    </button>
+      <button type="button" onClick={clearItems}>
+        Clear All
+      </button>
+    </div>
 
-    <button type="button" onClick={clearItems}>
-      Clear All
-    </button>
+
   </form>
 );
 

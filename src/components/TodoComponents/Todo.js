@@ -5,9 +5,9 @@ const Todo = ({
   task, completed, markAsComplete, markAsIncomplete,
 }) => {
   if (completed) {
-    return <div className="task-completed" onClick={markAsIncomplete}>{task}</div>;
+    return <div className="item task-completed" onClick={markAsIncomplete}>{task}</div>;
   }
-  return <div onClick={markAsComplete}>{task}</div>;
+  return <div className="item" onClick={markAsComplete}>{task}</div>;
 };
 
 Todo.propTypes = {
