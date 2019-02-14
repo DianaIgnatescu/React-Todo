@@ -40,6 +40,7 @@ class App extends React.Component {
     this.clearCompleted = this.clearCompleted.bind(this);
     this.markAsComplete = this.markAsComplete.bind(this);
     this.markAsIncomplete = this.markAsIncomplete.bind(this);
+    this.clearItems = this.clearItems.bind(this);
   }
 
   markAsComplete(id) {
@@ -79,6 +80,12 @@ class App extends React.Component {
     });
   }
 
+  clearItems() {
+    this.setState({
+      items: [],
+    });
+  }
+
   clearCompleted() {
     const incompleteItems = this.state.items.filter(item => !item.completed);
     this.setState({
@@ -101,6 +108,7 @@ class App extends React.Component {
         />
         <ToDoForm
           changeHandler={this.changeHandler}
+          clearItems={() => this.clearItems()}
           text={this.state.text}
           addNewItem={this.addNewItem}
           clearCompleted={this.clearCompleted}

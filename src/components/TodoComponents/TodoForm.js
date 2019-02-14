@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ToDoForm = ({
-  changeHandler, addNewItem, text, clearCompleted,
+  changeHandler, addNewItem, text, clearCompleted, clearItems,
 }) => (
   <form>
     <input
@@ -19,6 +19,10 @@ const ToDoForm = ({
     <button type="button" onClick={clearCompleted}>
       Clear Completed
     </button>
+
+    <button type="button" onClick={clearItems}>
+      Clear All
+    </button>
   </form>
 );
 
@@ -27,6 +31,7 @@ ToDoForm.propTypes = {
   changeHandler: PropTypes.func.isRequired,
   text: PropTypes.string,
   clearCompleted: PropTypes.func.isRequired,
+  clearItems: PropTypes.func.isRequired,
 };
 
 ToDoForm.defaultProps = {
