@@ -1,3 +1,113 @@
+html {
+  font-size: 62.5%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .task-completed {
-  text-decoration: line-through;
+  text-decoration: red line-through;
+}
+.item:hover {
+  cursor: pointer;
+}
+
+.app {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  background-image: linear-gradient(45deg,#cc95c0, #4448d8);
+  border-radius: 25px;
+}
+
+.app h2 {
+  text-align: center;
+  color: white;
+  font-size: 3.2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.list-container {
+  color: white;
+  line-height: 2;
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.6rem;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-button {
+  border-radius: 15px;
+  width: 10%;
+  height: 60px;
+  margin-left: 10px;
+  background: RGBA(255,255,255,0.36);
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 0;
+}
+
+.add-button:hover {
+  background: #cc95c0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+input {
+  background: RGBA(255,255,255,0.36);
+  margin: 10px 0;
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  width: 85%;
+  color: white;
+  font-size: 1.6rem;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 20px;
+}
+
+::placeholder {
+  font-size: 1.6remrem;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.button-container button {
+  padding: 20px 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background: RGBA(255,255,255,0.36);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.6rem;
+  border: none;
+  color: white;
+  width: 50%;
+}
+
+.button-container button:hover {
+  background: #cc95c0;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.button-container button:last-child {
+  margin-left: 10px;
 }

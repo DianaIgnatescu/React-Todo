@@ -13,19 +13,34 @@ class App extends React.Component {
     this.state = {
       items: [
         {
-          task: 'Organize Garage',
+          task: 'Make a To Do List',
           id: '1',
+          completed: true,
+        },
+        {
+          task: 'Pet Llama',
+          id: '2',
           completed: false,
         },
         {
           task: 'Bake Cookies',
-          id: '2',
+          id: '3',
           completed: true,
         },
         {
           task: 'Try To Take Over The World',
-          id: '3',
+          id: '4',
           completed: false,
+        },
+        {
+          task: 'Water Plants',
+          id: '5',
+          completed: false,
+        },
+        {
+          task: 'Complain about the weather',
+          id: '6',
+          completed: true,
         },
       ],
       text: '',
@@ -35,6 +50,7 @@ class App extends React.Component {
     this.clearCompleted = this.clearCompleted.bind(this);
     this.markAsComplete = this.markAsComplete.bind(this);
     this.markAsIncomplete = this.markAsIncomplete.bind(this);
+    this.clearItems = this.clearItems.bind(this);
   }
 
   markAsComplete(id) {
@@ -74,6 +90,12 @@ class App extends React.Component {
     });
   }
 
+  clearItems() {
+    this.setState({
+      items: [],
+    });
+  }
+
   clearCompleted() {
     const incompleteItems = this.state.items.filter(item => !item.completed);
     this.setState({
@@ -89,9 +111,14 @@ class App extends React.Component {
     return (
       <div className="app">
         <h2>Things To Do</h2>
-        <TodoList items={this.state.items} markAsComplete={this.markAsComplete} markAsIncomplete={this.markAsIncomplete} />
+        <TodoList
+          items={this.state.items}
+          markAsComplete={this.markAsComplete}
+          markAsIncomplete={this.markAsIncomplete}
+        />
         <ToDoForm
           changeHandler={this.changeHandler}
+          clearItems={() => this.clearItems()}
           text={this.state.text}
           addNewItem={this.addNewItem}
           clearCompleted={this.clearCompleted}

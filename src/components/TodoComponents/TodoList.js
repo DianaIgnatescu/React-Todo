@@ -6,7 +6,7 @@ import Todo from './Todo';
 // feel free to change this component.js into TodoList.js
 
 const TodoList = ({ items, markAsComplete, markAsIncomplete }) => (
-  <div>
+  <div className="list-container">
     {items.map(item => (
       <Todo
         key={`todo-${item.id}`}
